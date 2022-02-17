@@ -1,0 +1,210 @@
+html,body{
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+.fondo{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: linear-gradient(0deg, rgba(255,217,102,1) 0%, rgba(0,176,240,1) 50%, rgba(0,112,192,1) 100%);
+	width: 100%;
+	height: 100%;
+	animation-name: fondo;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+
+}
+.sol{ 
+	background: #FFFF00;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 45%;
+	top: 50%;
+	border-radius: 100px;
+	box-shadow: 0px 0px 0px 10px rgba(255,140,0,0.5);
+	animation-name: sol;
+	animation-duration: 20s;
+	animation-iteration-count:infinite;
+}
+
+.nubes{
+	background-image: url(images/fondo1.png);
+	background-repeat: repeat-x;
+	position: absolute; 
+	top: 10%;
+	left: 0px;
+	width: 100%;
+	height: 174px;	
+	animation-name: nubes;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+}
+
+
+
+.helicopter{ 
+	background-image: url(images/helicopter.png);
+	width: 500px;
+	height: 500px;
+	display: inline-block;
+	position: absolute;
+	left: 10%;
+	top: 20%;
+	z-index: 2;
+	animation-name: helicopter;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	/*position: relative; */
+}
+
+
+
+input[type=radio]{ position: relative; z-index: 100; display: none; }
+.button{
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
+	background:#1f1f1f;
+	display: inline-block;
+	padding: 12px 15px;	
+	height: 24px; 
+	width: 15px;
+	background-repeat: no-repeat;
+}
+.button.btn1{ 
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: -50px;
+}
+.button.btn2{ 
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: 0px;
+}
+.button.btn3{ 
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: -100px;
+}
+#play:checked ~ .btn1{
+	background-color: #fafad2;
+}
+#pause:checked ~ .btn2{
+	background-color: #fafad2;
+}
+#stop:checked ~ .btn3{
+	background-color: #fafad2;
+}
+@keyframes sol{
+	0%{ left: 45%; top: 50%; }
+	50%{ left: 45%; top: 75%; background: #FFC000; }
+	100%{ left: 45%; top: 100%; background: #FFC000; box-shadow: 0px 0px 0px 10px rgba(73,92,95,0.5); }
+}
+
+@keyframes fondo{
+	50%{ background: linear-gradient(0deg, #FFD966  0%, #0070C0 50%, #002060 100%); }
+	100%{ background: linear-gradient(0deg, #00B0F0 0%, #0070C0 50%, #002060 100%); }
+}
+
+@keyframes nubes{
+	from{ background-position: 0 0; }
+	to{ background-position: 100% 0; }
+}
+
+@keyframes helicopter{
+	0%{ left: 10%; top: 20%;}
+	25%{ left: 10%; top: 25%;}
+	50%{ left: 10%; top: 30%;}
+	75%{ left: 10%; top: 25%;}
+	100%{ left: 10%; top: 20%;}
+}
+
+
+
+#pause:checked ~ .sol{
+	animation-name: sol;
+	animation-play-state: paused;
+}
+
+#pause:checked ~ .fondo{
+	animation-name: fondo;
+	animation-play-state: paused;
+}
+#pause:checked ~ .nubes{
+	animation-name: nubes;
+	animation-play-state: paused;
+}
+
+#pause:checked ~ .helicopter{
+	animation-name: helicopter;
+	animation-play-state: paused;
+}
+
+
+#play:checked ~ .sol{
+	animation-name: sol;
+	animation-play-state: running;
+}
+
+#play:checked ~ .fondo{
+	animation-name: fondo;
+	animation-play-state: running;
+}
+#play:checked ~ .nubes{
+	animation-name: nubes;
+	animation-play-state: running;
+}
+#play:checked ~ .helicopter{
+	animation-name: helicopter;
+	animation-play-state: running;
+}
+
+
+
+#stop:checked ~ .sol{
+	animation-name: stopSol;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+#stop:checked ~ .fondo{
+	animation-name: stopFondo;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .nubes{
+	animation-name: stopNubes;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .helicopter{
+	animation-name: stopHelicopter;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+
+
+
+@keyframes stopNubes{
+	from{ background-position: 0 0; }
+	to{ background-position: 0 0; }
+}
+@keyframes stopFondo{
+	from{ background: linear-gradient(0deg, rgba(255,217,102,1) 0%, rgba(0,176,240,1) 50%, rgba(0,112,192,1) 100%); }
+	to{ background: linear-gradient(0deg, rgba(255,217,102,1) 0%, rgba(0,176,240,1) 50%, rgba(0,112,192,1) 100%); }
+}
+
+@keyframes stopSol{
+	from{ left: 45%; }
+	to{ left: 45%; }
+}
+
+@keyframes stopHelicopter{
+	from{ left: 10%; }
+	to{ left: 10%; }
+}
