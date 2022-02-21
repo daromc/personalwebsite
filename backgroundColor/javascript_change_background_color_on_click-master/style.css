@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#container {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #6ea7fd, #69018f);
+}
+
+
+#btn-color {
+    background-color: #0471d6;
+    color:white;
+    margin-top: 10px;
+    padding: 20px;
+    border: 2px groove black;
+    outline: none;
+    border-radius: 20px;
+    font-weight: bold;
+    /* background: chocolate; */
+   
+}
